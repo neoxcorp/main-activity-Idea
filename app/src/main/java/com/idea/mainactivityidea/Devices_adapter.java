@@ -24,9 +24,9 @@ public class Devices_adapter extends ArrayAdapter<String> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View single_row=inflater.inflate(R.layout.custom_list,null,true);
         TextView textView=(TextView)single_row.findViewById(R.id.device_list);
-        ImageView imageView=(ImageView)single_row.findViewById(R.id.device_icon);
+        // ImageView imageView=(ImageView)single_row.findViewById(R.id.device_icon);
         textView.setText(device_list[position]);
-        imageView.setImageResource(image_ids[position]);
+        // imageView.setImageResource(image_ids[position]);
         return single_row;
     }
 }

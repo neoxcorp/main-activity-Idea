@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,19 +26,32 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        devices_list=(ListView)findViewById(R.id.Devices_list);
+
+        Devices_adapter adapter = new Devices_adapter(this,image_ids,device_list);
+        devices_list.setAdapter(adapter);
+
+        init();
+    }
+
+    private void init() {
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // buttons
+        findViewById(R.id.settingsImBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
-        devices_list=(ListView)findViewById(R.id.Devices_list);
-
-        Devices_adapter adapter=new Devices_adapter(this,image_ids,device_list);
-        devices_list.setAdapter(adapter);
-
     }
 
 }
