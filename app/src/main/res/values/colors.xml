@@ -9,6 +9,8 @@
 
     <color name="green">#009900</color>
     <color name="white">#ffffff</color>
-    <color name="toolbar">#ffffff</color>
+
+    <!--a) #ffffcc  b) #ffccff  c) #ccffcc and d) #ccffff-->
+    <color name="toolbar">#ccffff</color>
     <color name="title">#33beb1</color>
 </resources>
