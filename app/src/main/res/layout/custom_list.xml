@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    >
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15"
+        android:id="@+id/device_icon"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.51"
+        android:textColor="#000000"
+        android:id="@+id/device_list"
+        android:text="@string/device1"
+        android:textColorHighlight="#000000"
+        android:gravity="center"
+        />
+    <Switch
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.16"
+        android:textStyle="bold"
+        android:showText="true"
+        android:splitTrack="true"
+        android:id="@+id/switch_btn"
+
+        android:checked="true"
+        />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.13"
+        android:background="@drawable/indsetlogo1"
+        android:id="@+id/indivisual_settings"
+        />
+</LinearLayout>
