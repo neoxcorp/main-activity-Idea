@@ -12,7 +12,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        // typefaceTitle = Typeface.createFromAsset(getAssets(),"fonts/Roboto-LightItalic.ttf");
         typefaceTitle = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Black.ttf");
         typefaceSplashTitle = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Black.ttf");
         typefaceRegular = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");

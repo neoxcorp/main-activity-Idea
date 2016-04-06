@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         devices_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, String.valueOf(view.getId()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "item " + String.valueOf(position),
+                        Toast.LENGTH_SHORT).show();
                 devices_list.setSelection(position);
                 devices_list.setItemChecked(position, true);
                 view.setEnabled(true);
