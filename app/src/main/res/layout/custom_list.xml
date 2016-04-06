@@ -32,15 +32,31 @@
         android:layout_gravity="center_vertical|end"
         android:orientation="horizontal">
 
-        <Switch
+        <ToggleButton
             android:id="@+id/switch_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center_vertical"
+            android:background="@drawable/switch_selector"
             android:checked="true"
-            android:showText="true"
-            android:textStyle="bold"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:textOff=""
+            android:textOn=""
+            android:showText="false"
             android:focusableInTouchMode="true"/>
+
+        <!--<Switch
+            android:id="@+id/switch_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/switch_selector"
+            android:checked="true"
+            android:textOff=""
+            android:textOn=""
+            android:showText="false"
+            android:focusableInTouchMode="true"/>-->
 
         <!--<LinearLayout
             android:layout_width="0dp"
