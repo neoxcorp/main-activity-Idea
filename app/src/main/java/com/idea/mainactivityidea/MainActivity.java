@@ -8,10 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     int[] image_ids = { R.drawable.icon172, R.drawable.icon272, R.drawable.icon372,
             R.drawable.icon472, R.drawable.icon572, R.drawable.icon672 };
@@ -26,32 +28,47 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        devices_list=(ListView)findViewById(R.id.Devices_list);
+        devices_list = (ListView)findViewById(R.id.Devices_list);
 
-        Devices_adapter adapter = new Devices_adapter(this,image_ids,device_list);
+        Devices_adapter adapter = new Devices_adapter(this, image_ids, device_list);
         devices_list.setAdapter(adapter);
+
+        devices_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, String.valueOf(view.getId()), Toast.LENGTH_SHORT).show();
+                devices_list.setSelection(position);
+                devices_list.setItemChecked(position, true);
+                view.setEnabled(true);
+                view.setSelected(true);
+            }
+        });
 
         init();
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void init() {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // buttons
-        findViewById(R.id.settingsImBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
-            }
-        });
+        TextView titleSplashTv = (TextView) findViewById(R.id.titleTv);
+        titleSplashTv.setText(titleSplashTv.getText().toString().toUpperCase());
+        titleSplashTv.setTypeface(BaseApplication.getTypeFaceTitle());
 
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        // buttons
+        findViewById(R.id.settingsImBtn).setOnClickListener(this);
+        findViewById(R.id.fab).setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.settingsImBtn:
+                Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fab:
+                Snackbar.make(v, "Add", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                break;
+        }
+    }
 }
